@@ -28,11 +28,11 @@ http://192.168.12.11:8001//flag?name={{self.__init__.__globals__.__builtins__.__
 ![web3](https://github.com/Kreedman05/nto_4fun_2024/assets/164340613/14cc0e39-3750-47b6-b74d-4bb765d1c289)
 
 ## Forensic-1
-- 1. Кто-то скачал архив RAR, который содержал в себе PDF-файл, а также CMD-файл, который скачал полезную нагрузку. Архив лежал по пути **C:\Users\Evgeniy\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\CQ2HQVTU\classfied.rar.ransom**. Судя по расположению архива, он был доставлен по почте.
-- 2. Полезная нагрузка была скачана с [http://95.169.192.220:8080/prikol.exe](http://95.169.192.220:8080/prikol.exe).
-- 3. Уязвимость CVE-2023-38831.
-- 4. Для противодействия отладке используются вызовы из WinAPI - CheckRemoteDebuggerPresent() и IsDebuggerPresent(), Если эти вызовы возвращают True (хотя бы один), то вредонос завершает работу.
-- 5. Программа использует алгоритм AES CBC.
-- 6. amogusamogusamogusamogusamogusam.
-- 7. Программа делает POST запрос по URL [https://api.telegram.org/bot7029575943:AAFNYmmW_QqqMcaHZ-DFRn3M05DptExeAGE/sendDocument](https://api.telegram.org/bot7029575943:AAFNYmmW_QqqMcaHZ-DFRn3M05DptExeAGE/sendDocument) и отправляет файл info.txt боту.
-- 8. sFYZ#2z9VdUR9sm`3JRz.
+1. Кто-то скачал архив RAR, который содержал в себе PDF-файл, а также CMD-файл, который скачал полезную нагрузку. Архив лежал по пути **C:\Users\Evgeniy\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\CQ2HQVTU\classfied.rar.ransom**. Судя по расположению архива, он был доставлен по почте.
+2. Полезная нагрузка была скачана с [http://95.169.192.220:8080/prikol.exe](http://95.169.192.220:8080/prikol.exe).
+3. Уязвимость CVE-2023-38831.
+4. Для противодействия отладке используются вызовы из WinAPI - CheckRemoteDebuggerPresent() и IsDebuggerPresent(), Если эти вызовы возвращают True (хотя бы один), то вредонос завершает работу.
+5. Программа использует алгоритм AES CBC.
+6. amogusamogusamogusamogusamogusam.
+7. Программа делает POST запрос по URL [https://api.telegram.org/bot7029575943:AAFNYmmW_QqqMcaHZ-DFRn3M05DptExeAGE/sendDocument](https://api.telegram.org/bot7029575943:AAFNYmmW_QqqMcaHZ-DFRn3M05DptExeAGE/sendDocument) и отправляет файл info.txt боту.
+8. sFYZ#2z9VdUR9sm`3JRz.
