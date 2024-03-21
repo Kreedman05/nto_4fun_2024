@@ -198,3 +198,16 @@ r = requests.post('http://192.168.12.12:5000/api/CheckPin',json={"pin":int(true_
 print(r.text)
 
 ```
+
+
+## Defense
+
+- 386 строка - fixed html escape (XSS)
+  portal_api.py noteText = html.escape(content['noteText'])
+- 211 строка - добавлен фильтр для избежания sql аттаки
+  auth_api.py new_password = new_password.replace(',','').replace("'",'').replace(';','').replace('-','') 
+- 254 строка исправлено предоставление паролей всех юзеров при вызове получения всех юзеров
+  auth_api.py удалена 'password': row[2]
+- в 212 auth_api.py запрос изменён на параметрический, что убирает sql уязвимость
+  "sql_query = "UPDATE user SET pw = ? WHERE login = ?;"
+- portal_api.ру 246 строка. В функцию updateLight добавлена проверка на наличие прав администратора 
