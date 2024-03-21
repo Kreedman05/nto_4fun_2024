@@ -16,7 +16,7 @@ for i in range(256):
 flag_enc=[0xedcfe1f3, 0x646bcd23, 0x50f9ad57, 0xf299b1e1, 0xc6a9b6e4, 0x3280614c, 0x93772b02, 0xab2c3a43, 0x2a0d936a, 0x1bfa14d4, 0x255d6f2f, 0xc447f66b, 0x5ad96cf5, 0xe964ad12]
 for i in flag_enc:
     for k in range(0xff+1):
-        for m in range(0xff+1):
+          for m in range(0xff+1):
             inp = [k,m]
             xor_point = 0xffffffff
             for j in range(2):
