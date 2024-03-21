@@ -145,3 +145,56 @@ io.interactive()
 6. Злоумышленник просканировал система через linpeas, для повышения привелегий
 7. бэкдор LD_PRELOAD через jynx2
 
+## Crypto-1
+
+На сервере была реализован алгоритм шифрования AES CBC_MODE, а также возможность обращения к серверу с целью получения текущего времени, выступающего в виде iv в шифровании, зашифрованного настоящего pin, зашифрованного pin присланного пользователем
+и проверки на соответствие введённого пина и истинного.
+В связи с вышеперечисленным был написан алгоритм получающий одновременно закодированный оригинальный pin и закодированный пользовательский pin. Так как они отправлялись в одно время, то iv был одинаковым, и оставалось только перебрать возможные значаения pin, дожидаясь пока он не совпадёт с истинным. После нахождения верного pin он отправлялся на сервер, а в ответ приходил флаг.
+```python
+import requests
+
+headers = {'Content-type': 'application/json'}
+
+skipped = []
+r = requests.get("http://192.168.12.12:5000/api/EncryptedPin")
+first = r.json()['encrypted_pin']
+for i in range(1000,10000):
+    r = requests.get("http://192.168.12.12:5000/api/Time")
+    time = r.json()['current_time']
+    r = requests.get("http://192.168.12.12:5000/api/EncryptedPin")
+    enc_flag = r.json()['encrypted_pin']
+    r = requests.post('http://192.168.12.12:5000/api/EncryptPin',json={"pin":i},headers=headers)
+    cust_pin = r.json()['encrypted_pin']
+    r = requests.get("http://192.168.12.12:5000/api/Time")
+    time2 = r.json()['current_time']
+    if time == time2:
+        # print(time,enc_flag,cust_pin,time2)
+        if str(enc_flag) == str(cust_pin):
+            print(i)
+            true_pin = i
+            break
+    else:
+        skipped.append(i)
+sk = []
+for el in skipped:
+    r = requests.get("http://192.168.12.12:5000/api/Time")
+    time = r.json()['current_time']
+    r = requests.get("http://192.168.12.12:5000/api/EncryptedPin")
+    enc_flag = r.json()['encrypted_pin']
+    r = requests.post('http://192.168.12.12:5000/api/EncryptPin',json={"pin":el},headers=headers)
+    cust_pin = r.json()['encrypted_pin']
+    r = requests.get("http://192.168.12.12:5000/api/Time")
+    time2 = r.json()['current_time']
+    if time == time2:
+        # print(time,enc_flag,cust_pin,time2)
+        if str(enc_flag) == str(cust_pin):
+            print(el)
+            break
+    else:
+        sk.append(el)
+
+
+r = requests.post('http://192.168.12.12:5000/api/CheckPin',json={"pin":int(true_pin)},headers=headers)
+print(r.text)
+
+```
