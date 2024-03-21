@@ -36,3 +36,16 @@ http://192.168.12.11:8001//flag?name={{self.__init__.__globals__.__builtins__.__
 6. amogusamogusamogusamogusamogusam.
 7. Программа делает POST запрос по URL [https://api.telegram.org/bot7029575943:AAFNYmmW_QqqMcaHZ-DFRn3M05DptExeAGE/sendDocument](https://api.telegram.org/bot7029575943:AAFNYmmW_QqqMcaHZ-DFRn3M05DptExeAGE/sendDocument) и отправляет файл info.txt боту.
 8. sFYZ#2z9VdUR9sm`3JRz.
+
+## Forensic-2
+
+1. GitLab 15.2.
+2. Тип уязвимости - RCE (в данном случае CVE-2022-2884)
+3. Пользователь git был добавлен в файл /etc/sudoers с правом на исполнение бинаря git, который имел SUID бит и мог выполняться от имени root.
+4. Злоумышленник повысил свои привелегии через SUID бинарь - git.
+   sudo git -p help config !/bin/sh
+5. В папке ~/root/.ssh/authorized_keys есть ключ авторизации для amogus@debian
+6. **ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIKXFjUp2LlKAsLvM1PZE7CYEfztiZrOf8PHx9ja1mu2 amongus@debian**
+7. Злоумышленник просканировал система через linpeas, для повышения привелегий
+8. бэкдор LD_PRELOAD через jynx2
+
