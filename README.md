@@ -5,12 +5,12 @@ REV-1. В таске был encrypt ввода, после чего его ве�
 - **Код приложен в файле с названием REV-1**
 
 # Web-1
-- burp;
-- target;
-- download запрос на file1.txt;
-- hint1: указание что флаг в /etc/secret;
-- LFI /download?file_type=../../etc/secret;
-- Profit!;
+1. burp
+2. target
+3. download запрос на file1.txt
+4. hint1: указание что флаг в /etc/secret
+5. LFI /download?file_type=../../etc/secret
+6. Profit!
 ![web1 1](https://github.com/Kreedman05/nto_4fun_2024/assets/164340613/68bb735e-ca77-4362-b6ce-46de99d7310d)
 ![web1 2](https://github.com/Kreedman05/nto_4fun_2024/assets/164340613/b980683b-8f5e-42af-bad5-7112e81a6bf6)
 
